@@ -1,0 +1,21 @@
+﻿@* Define in lowerCase *@
+@model School
+
+@{
+    ViewData["Title"] = "school information";
+    Layout = "_Simple";
+}
+
+@* Title *@
+<h1>---> @ViewData["Title"] <---</h1>
+<h3> Name: @Model.Name </h3>
+<h3> Type of school: @Model.TypeSchool</h3>
+<p><strong> Fundation year: @Model.FundationYear </strong></p>
+<p><i> @ViewBag.AnyThingOne </i></p>
+<p><i> @ViewBag.AnyThingTwo </i></p>
+<address>
+    <p>Country: @Model.Country</p>
+    <p>City: @Model.City</p>
+    <p>Addres: @Model.Address</p>
+    <p></p>
+</address>

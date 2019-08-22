@@ -1,0 +1,13 @@
+@* Define in lowerCase *@
+@model Area
+
+@{
+    ViewData["Title"] = "area information";
+    Layout = "_Simple";
+    ViewBag.Date = System.DateTime.Now;
+}
+
+<h1>@ViewData["Title"]</h1>
+<h2>Area: @Model.Name</h2>
+<p><i>@ViewBag.Date</i></p>
+<p>@Model.UniqueId</p>
