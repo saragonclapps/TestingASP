@@ -13,6 +13,7 @@ namespace School.Controllers
                 Country = "Colombia",
                 City = "Bogota",
                 Address = "Calle 77 C numero 109 A 22",
+                UniqueId = Guid.NewGuid().ToString()
             };
             
             ViewBag.AnyThingOne = "1- object of bag!!";

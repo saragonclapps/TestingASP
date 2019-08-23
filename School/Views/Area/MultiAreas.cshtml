@@ -1,5 +1,5 @@
 @* Define in lowerCase *@
-@model Area
+@model List<Area>
 
 @{
     ViewData["Title"] = "area information";
@@ -10,11 +10,7 @@
 <h1>@ViewData["Title"]</h1>
 <p><i>@ViewBag.Date</i></p>
 
-<strong>View in index file</strong>
-<p>
-    Area: @Model.Name <br/>
-    @Model.UniqueId
-</p>
-
-<strong>View in SimpleArea file</strong>
-<partial name="SimpleArea" />
+@foreach (var area in Model)
+{
+    <partial name="SimpleArea" model="area"/>
+}
