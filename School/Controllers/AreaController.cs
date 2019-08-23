@@ -1,7 +1,5 @@
-using System;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 using School.Models;
 
 namespace School.Controllers
@@ -16,11 +14,8 @@ namespace School.Controllers
         
         public IActionResult Index()
         {
-            var area = new Area{
-                Name = "Computer's science",
-                Id = Guid.NewGuid().ToString()
-            };
-            
+            var area = _context.Areas.FirstOrDefault();
+
             return View("Index",area);
         }
         
