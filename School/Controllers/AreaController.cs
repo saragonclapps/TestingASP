@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using School.Models;
 
 namespace School.Controllers
 {
@@ -8,25 +9,24 @@ namespace School.Controllers
     {
         public IActionResult Index()
         {
-            var area = new Models.Area()
-            {
+            var area = new Area{
                 Name = "Computer's science",
                 UniqueId = Guid.NewGuid().ToString()
             };
             
-            return View("Index",area);  
+            return View("Index",area);
         }
         
-        public IActionResult MultiAreas()
+        public IActionResult MultiArea()
         {
-            var areas = new List<Models.Area>(){
-                new Models.Area{Name="Math", UniqueId = Guid.NewGuid().ToString()} ,
-                new Models.Area{Name="English", UniqueId = Guid.NewGuid().ToString()},
-                new Models.Area{Name="Spanish", UniqueId = Guid.NewGuid().ToString()},
-                new Models.Area{Name="Programming", UniqueId = Guid.NewGuid().ToString()}
+            var areas = new List<Area>{
+                new Area{Name="Math", UniqueId = Guid.NewGuid().ToString()} ,
+                new Area{Name="English", UniqueId = Guid.NewGuid().ToString()},
+                new Area{Name="Spanish", UniqueId = Guid.NewGuid().ToString()},
+                new Area{Name="Programming", UniqueId = Guid.NewGuid().ToString()}
             };
             
-            return View("MultiAreas",areas);  
+            return View("MultiArea",areas);  
         }
     }
 }
