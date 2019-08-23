@@ -1,17 +1,24 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using School.Models;
 
 namespace School.Controllers
 {
     public class AreaController : Controller
     {
+        private SchoolContext _context;
+        public AreaController(SchoolContext context)
+        {
+            _context = context;
+        }
+        
         public IActionResult Index()
         {
             var area = new Area{
                 Name = "Computer's science",
-                UniqueId = Guid.NewGuid().ToString()
+                Id = Guid.NewGuid().ToString()
             };
             
             return View("Index",area);
@@ -19,12 +26,7 @@ namespace School.Controllers
         
         public IActionResult MultiArea()
         {
-            var areas = new List<Area>{
-                new Area{Name="Math", UniqueId = Guid.NewGuid().ToString()} ,
-                new Area{Name="English", UniqueId = Guid.NewGuid().ToString()},
-                new Area{Name="Spanish", UniqueId = Guid.NewGuid().ToString()},
-                new Area{Name="Programming", UniqueId = Guid.NewGuid().ToString()}
-            };
+            var areas = _context.Areas;
             
             return View("MultiArea",areas);  
         }

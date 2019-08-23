@@ -11,7 +11,7 @@ namespace School.Controllers
         {
             var student = new Student{
                 Name = "Steve Sarmiento del perpetuo", 
-                UniqueId = Guid.NewGuid().ToString()
+                Id = Guid.NewGuid().ToString()
             };
             
             return View("Index",student);
@@ -30,10 +30,10 @@ namespace School.Controllers
                 from a1 in lastName1
                 select new Student{
                     Name = $"{n1} {n2} {a1}", 
-                    UniqueId = Guid.NewGuid().ToString()
+                    Id = Guid.NewGuid().ToString()
                 };
 
-            return View("MultiStudent",listStudents.OrderBy(al => al.UniqueId).Take(MANY_STUDENTS));
+            return View("MultiStudent",listStudents.OrderBy(al => al.Id).Take(MANY_STUDENTS));
         }
     }
 }

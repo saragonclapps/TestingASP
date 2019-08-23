@@ -12,15 +12,15 @@ namespace School.Models
 
         public TypesSchool TypeSchool { get; set; }
         public List<Course> Courses { get; set; }
-        public School(string name, int year) => (Name, FundationYear) = (name, year);
-
         
-        public School(string name, int year, TypesSchool type, string country = "", string city = "") : base()
-        {
-            (Name, FundationYear) = (name, year);
-            Country = country;
-            City = city;
-        }
+//        public School(string name, int year) => (Name, FundationYear) = (name, year);
+        
+//        public School(string name, int year, TypesSchool type, string country = "", string city = "") : base()
+//        {
+//            (Name, FundationYear) = (name, year);
+//            Country = country;
+//            City = city;
+//        }
 
         public override string ToString()
         {

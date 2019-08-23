@@ -1,5 +1,5 @@
 @* Define in lowerCase *@
-@model List<Area>
+@model IEnumerable<Area>
 
 @{
     ViewData["Title"] = "area information";
@@ -10,7 +10,4 @@
 <h1>@ViewData["Title"]</h1>
 <p><i>@ViewBag.Date</i></p>
 
-@foreach (var area in Model)
-{
-    <partial name="SimpleSchoolBase" model="area"/>
-}
+<partial name="TableSchoolBase" />
