@@ -1,0 +1,22 @@
+@* Doesn't have casting and skip the @model *@
+<table class="table table-dark table-hover">
+    <thead>
+    <tr>
+        <td scope="col">
+            <h3>NAME</h3>
+        </td>
+        <td scope="col">
+            <h3>ID</h3>
+        </td>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var obj in Model)
+    {
+        <tr>
+            <td>@obj.Name</td>
+            <td>@obj.UniqueId</td>
+        </tr>
+    }
+    </tbody>
+</table>
