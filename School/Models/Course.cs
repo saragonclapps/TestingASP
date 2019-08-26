@@ -9,10 +9,7 @@ namespace School.Models
         public List<Area> Areas{ get; set; }
         public List<Student> Students{ get; set; }
         public string Address { get; set; }
-
-        public void CleanPlace()
-        {
-            throw new NotImplementedException();
-        }
+        public string SchoolId { get; set; }
+        public School School { get; set; }
     }
 }
