@@ -1,0 +1,13 @@
+@* Define in lowerCase *@
+@model IEnumerable<Area>
+
+@{
+    ViewData["Title"] = "area information";
+    Layout = "_Simple";
+    ViewBag.Date = System.DateTime.Now;
+}
+
+<h1>@ViewData["Title"]</h1>
+<p><i>@ViewBag.Date</i></p>
+
+<partial name="TableSchoolBase" />

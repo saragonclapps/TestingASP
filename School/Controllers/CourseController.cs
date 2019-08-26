@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using School.Models;
@@ -12,9 +13,33 @@ namespace School.Controllers
             _context = context;
         }
         
-        public IActionResult Index()
+//        public IActionResult Index()
+//        {
+//            var course = _context.Courses.FirstOrDefault();
+//
+//            return View("Index",course);
+//        }
+        
+//        public IActionResult Index(string id)
+//        {
+//            var course = _context.Courses
+//                .FirstOrDefault(c => c.Id == id);
+//
+//            return View("Index",course);
+//        }        
+        
+        [Route("Course/Index/")]
+        [Route("Course/Index/{courseId}")]
+        public IActionResult Index(string courseId)
         {
-            var course = _context.Courses.FirstOrDefault();
+            if (String.IsNullOrEmpty(courseId))
+            {
+                var courses = _context.Courses;
+                return View("MultiCourse",courses);  
+            }
+            
+            var course = _context.Courses
+                .FirstOrDefault(c => c.Id == courseId);
 
             return View("Index",course);
         }
