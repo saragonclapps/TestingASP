@@ -51,5 +51,23 @@ namespace School.Controllers
             
             return View("MultiCourse",courses);  
         }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public IActionResult Create(Course course)
+        {
+            var school = _context.Schools.FirstOrDefault();
+
+            course.SchoolId = school.Id;
+            _context.Courses.Add(course);
+            _context.SaveChanges();
+            
+            return View();
+        }
     }
 }
