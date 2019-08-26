@@ -38,7 +38,8 @@ namespace School.Controllers
                 var courses = _context.Courses;
                 return View("MultiCourse",courses);  
             }
-            
+
+            ViewBag.Message = "New course is created!!";
             var course = _context.Courses
                 .FirstOrDefault(c => c.Id == courseId);
 
@@ -61,13 +62,14 @@ namespace School.Controllers
         [HttpPost]
         public IActionResult Create(Course course)
         {
+            if (!ModelState.IsValid) return View("Create",course);
+            
             var school = _context.Schools.FirstOrDefault();
-
             course.SchoolId = school.Id;
             _context.Courses.Add(course);
             _context.SaveChanges();
             
-            return View();
+            return View("Index", course);
         }
     }
 }
