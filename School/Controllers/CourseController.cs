@@ -28,6 +28,7 @@ namespace School.Controllers
 //            return View("Index",course);
 //        }        
         
+        [Route("Course")]
         [Route("Course/Index/")]
         [Route("Course/Index/{courseId}")]
         public IActionResult Index(string courseId)

@@ -13,6 +13,7 @@ namespace School.Controllers
             _context = context;
         }
         
+        [Route("Area")]
         [Route("Area/Index/")]
         [Route("Area/Index/{areaId}")]
         public IActionResult Index(string areaId)
