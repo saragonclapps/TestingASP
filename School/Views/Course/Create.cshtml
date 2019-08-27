@@ -1,0 +1,31 @@
+@model Course
+
+@{
+    ViewData["Title"] = "Create course";
+    Layout = "_Simple";
+    ViewBag.Date = System.DateTime.Now;
+}
+
+<h1>@ViewData["Title"]</h1>
+<p><i>@ViewBag.Date</i></p>
+<div asp-validation-summary="All"></div>
+<form method="POST">
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name"/>
+    </div>
+    <div>
+        <label asp-for="Address"></label>
+        <input asp-for="Address"/>
+    </div>
+    <div>
+        <label asp-for="WorkingDay"></label>
+        @Html.DropDownList(
+            "WorkingDay", 
+            Html.GetEnumSelectList<TypesWorkingDay>(), 
+            "Select the working day",
+            new {@class = "form-control"}
+        )
+    </div>
+    <input type="submit"/>
+</form>
