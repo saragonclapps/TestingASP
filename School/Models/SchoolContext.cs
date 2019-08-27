@@ -75,26 +75,30 @@ namespace School.Models
                     Name = "101", 
                     Id = Guid.NewGuid().ToString(), 
                     SchoolId = school.Id, 
-                    WorkingDay = TypesWorkingDay.Morning
+                    WorkingDay = TypesWorkingDay.Morning,
+                    Address = "Av Corrientes 2486"
                 },
                 new Course
                 {
                     Name = "202",
                     Id = Guid.NewGuid().ToString(),
                     SchoolId = school.Id,
-                    WorkingDay = TypesWorkingDay.Afernoon
+                    WorkingDay = TypesWorkingDay.Afernoon,
+                    Address = "Av Corrientes 2486"
                 },
                 new Course {
                     Name = "404",
                     Id = Guid.NewGuid().ToString(),
                     SchoolId = school.Id,
-                    WorkingDay = TypesWorkingDay.Night
+                    WorkingDay = TypesWorkingDay.Night,
+                    Address = "Av Corrientes 2486"
                 },
                 new Course {
                     Name = "505",
                     Id = Guid.NewGuid().ToString(),
                     SchoolId = school.Id,
-                     WorkingDay = TypesWorkingDay.Afernoon
+                     WorkingDay = TypesWorkingDay.Afernoon,
+                     Address = "Av Corrientes 2486"
                 }
             };
         }
