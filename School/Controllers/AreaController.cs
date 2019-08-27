@@ -37,5 +37,53 @@ namespace School.Controllers
             
             return View("MultiArea",areas);  
         }
+
+        #region Create
+
+        public IActionResult Create()
+        {
+            ViewBag.Courses = _context.Courses.Select(c => c.Id);
+            return View("Create");
+        }
+
+        [HttpPost]
+        public IActionResult Create(Area area)
+        {
+            if (!ModelState.IsValid) return View("Create", area);
+
+            _context.Areas.Add(area);
+            _context.SaveChanges();
+
+            ViewBag.Message = "New area is created!!";
+            return View("Index", area);  
+        }
+        
+        #endregion Create
+
+        #region Edit
+
+        public IActionResult Edit(string id)
+        {
+            if (String.IsNullOrEmpty(id)) return View("Error");
+
+            var course = _context.Areas.FirstOrDefault(c => c.Id == id);
+            ViewBag.Courses = _context.Courses.Select(c => c.Id);
+
+            return View("Edit", course);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Area area)
+        {
+            if (!ModelState.IsValid) return View("Edit", area);
+
+            _context.Areas.Update(area);
+            _context.SaveChanges();
+
+            ViewBag.Message = "Area is edited!!";
+            return View("Index", area); 
+        }
+        
+        #endregion Edit
     }
 }

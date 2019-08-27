@@ -39,7 +39,6 @@ namespace School.Controllers
                 return View("MultiCourse",courses);  
             }
 
-            ViewBag.Message = "New course is created!!";
             var course = _context.Courses
                 .FirstOrDefault(c => c.Id == courseId);
 
@@ -53,10 +52,12 @@ namespace School.Controllers
             return View("MultiCourse",courses);  
         }
 
+        #region Create
+
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            return View("Create");
         }
         
         [HttpPost]
@@ -69,7 +70,37 @@ namespace School.Controllers
             _context.Courses.Add(course);
             _context.SaveChanges();
             
+            ViewBag.Message = "New course is created!!";
             return View("Index", course);
         }
+
+         #endregion Create
+
+        #region Edit
+
+        [HttpGet]
+        public IActionResult Edit(string id)
+        {
+            if (String.IsNullOrEmpty(id)) return View("Error");
+
+            var course = _context.Courses.First(c => c.Id == id);
+            
+            return View("Edit", course);
+        }
+        
+        [HttpPost]
+        public IActionResult Edit(Course course)
+        {
+            if (!ModelState.IsValid) View("Edit", course);
+            
+            var school = _context.Schools.FirstOrDefault();
+            course.SchoolId = school.Id;
+            _context.Courses.Update(course);
+            _context.SaveChanges();
+            
+            ViewBag.Message = "Course is edited!!";
+            return MultiCourse();
+        }
+        #endregion Edit
     }
 }
